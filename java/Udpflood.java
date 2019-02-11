@@ -33,7 +33,7 @@ public class Udpflood {
 		DatagramPacket packet = new DatagramPacket(buf, buf.length, address, portDst);
 
 		try {
-			System.out.printf("[*] Strat flooding %s:%d\n", ipAddr, portDst);
+			System.out.printf("[*] Start flooding %s:%d\n", ipAddr, portDst);
 			while (true) {
 				socket.send(packet);
 			}
