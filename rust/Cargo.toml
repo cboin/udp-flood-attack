@@ -5,3 +5,4 @@ authors = ["thomas.campistron.etu <thomas.campistron.etu@univ-lille.fr>"]
 edition = "2018"
 
 [dependencies]
+rand = "*"
