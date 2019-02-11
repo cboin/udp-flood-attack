@@ -1,0 +1,19 @@
+{
+  "name": "udp-flood-attack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cboin/udp-flood-attack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cboin/udp-flood-attack/issues"
+  },
+  "homepage": "https://github.com/cboin/udp-flood-attack#readme"
+}
